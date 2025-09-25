@@ -81,3 +81,9 @@ Assegurar que as rotas de **Usuários, Login e Produtos** funcionem de forma con
 - Cadastro de produto (válido e duplicado).  
 - Exclusão de produto válido e inexistente.  
 - Criação de carrinho e manipulação de estoque.  
+
+---
+
+✍️ **Observação:** Este README reflete o plano de testes **inicial** da ServeRest.  
+A versão revisada, com melhorias aplicadas após o Challenge 2, encontra-se no arquivo:  
+`Plano_de_Testes_ServeRest_Revisado.md`
