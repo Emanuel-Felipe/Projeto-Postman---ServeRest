@@ -1,0 +1,1298 @@
+{
+	"info": {
+		"_postman_id": "d04028aa-6cc3-4b1a-9c20-adf3777d4d86",
+		"name": "API Test - ServeRest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47966602",
+		"_collection_link": "https://kauaraff-9874555.postman.co/workspace/API-Test---ServeRest~fff74d75-b9d1-4a08-8f59-cfb8027c7a83/collection/47966602-d04028aa-6cc3-4b1a-9c20-adf3777d4d86?action=share&source=collection_link&creator=47966602"
+	},
+	"item": [
+		{
+			"name": "/login",
+			"item": [
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "/login/login - Entrar um usuário válido",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU2OTg2NDczLCJleHAiOjE3NTY5ODcwNzN9.9l-dbQkvCmDkyXnEO2W2dl3-RB0GW_ZgCf6o1cwABSo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"fulano@qa.com\",\r\n  \"password\": \"teste\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/login/login - Tentativa de login sem o body",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/login/login - Tentativa de login com a senha incorreta",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"fulano@qa.com\",\r\n  \"password\": \"teste01\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/login/login - Tentativa de login com e-mail inválido",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU2OTI1NzcxLCJleHAiOjE3NTY5MjYzNzF9.RWNHltdEYeBPC0FnlrxG3eKFZ9OlAM9onpKFo2XsEnM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"fulanoqa.com\",\r\n  \"password\": \"teste01\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "/usuarios",
+			"item": [
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "/usuário/find - Encontrar um usuário pela ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/usuarios/RGaPAY3ZCIcfh4nJ",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"usuarios",
+										"RGaPAY3ZCIcfh4nJ"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/usuário/find - Encontrar um usuário por uma ID inexistente",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/usuarios/ashuhia12uias2d3",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"usuarios",
+										"ashuhia12uias2d3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "/usuário/insert - Cadastrar um usuário",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Test da Silva\",\r\n  \"email\": \"test@qa.com.br\",\r\n  \"password\": \"teste\",\r\n  \"administrador\": \"true\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/usuarios",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/usuário/insert - Cadastrar um usuário com provedor gmail",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Test da Silva\",\r\n  \"email\": \"test@gmail.com.br\",\r\n  \"password\": \"tes\",\r\n  \"administrador\": \"true\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/usuarios",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/usuário/insert - Cadastrar um usuário com senha menor que 5 dígitos",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Test da Silva\",\r\n  \"email\": \"test@qa.com.br\",\r\n  \"password\": \"tes\",\r\n  \"administrador\": \"true\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/usuarios",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/usuário/insert - Cadastrar um usuário com senha maior que 10 dígitos",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Test da Silva\",\r\n  \"email\": \"tester@qa.com.br\",\r\n  \"password\": \"senhagrande\",\r\n  \"administrador\": \"true\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/usuarios",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/usuário/insert - Cadastrar um email ja existente",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Fulano da Silva\",\r\n  \"email\": \"fulano@qa.com.br\",\r\n  \"password\": \"teste\",\r\n  \"administrador\": \"true\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/usuarios",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/usuário/insert - Cadastrar um usuário com email inválido",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Fulano da Silva\",\r\n  \"email\": \"fulano.com.br\",\r\n  \"password\": \"teste\",\r\n  \"administrador\": \"true\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/usuarios",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PUT",
+					"item": [
+						{
+							"name": "/usuário/update - Alterar o cadastro de um usuário",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Teste da Silva\",\r\n  \"email\": \"teeste@qa.com.br\",\r\n  \"password\": \"teste\",\r\n  \"administrador\": \"true\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/usuarios/g1obecbAGOgn0kh9",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"usuarios",
+										"g1obecbAGOgn0kh9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/usuário/update - Alteração de cadastro de usuário inexistente",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Fulano\",\r\n    \"email\": \"fulaninho@tester.com\",\r\n    \"password\": \"teste\",\r\n    \"administrador\": \"true\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/usuarios/GHgxvm27POKnlkab",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"usuarios",
+										"GHgxvm27POKnlkab"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/usuário/update - Alteração de cadastro com tag admin errada",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Fulano\",\r\n    \"email\": \"fulano@tester.com\",\r\n    \"password\": \"teste\",\r\n    \"administrador\": \"User\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/usuarios/GHgxvm27POKnlkag",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"usuarios",
+										"GHgxvm27POKnlkag"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/usuário/update - Alteração de cadastro de usuário sem o body",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/usuarios/m6rR6fiIBgdZhjcz",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"usuarios",
+										"m6rR6fiIBgdZhjcz"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"item": [
+						{
+							"name": "/usuário/delete - Deletar um usuário",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/usuarios/uREBvkjoZyev1VT1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"usuarios",
+										"uREBvkjoZyev1VT1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/usuário/delete - Deletar um usuário duas vezes",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/usuarios/uREBvkjoZyev1VT1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"usuarios",
+										"uREBvkjoZyev1VT1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/usuário/delete - Deletar um usuário inexistente",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/usuarios/shlIasd56SHNK123",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"usuarios",
+										"shlIasd56SHNK123"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "/produtos",
+			"item": [
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "/get/find - Trazer os detalhes dos produtos cadastrados",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/produtos",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"produtos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/get/find - Trazer informações pela ID",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU2OTg2NDczLCJleHAiOjE3NTY5ODcwNzN9.9l-dbQkvCmDkyXnEO2W2dl3-RB0GW_ZgCf6o1cwABSo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/produtos/36FZQSsXdJ7RXebq",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"produtos",
+										"36FZQSsXdJ7RXebq"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/get/find - Trazer informações de produto inexistente",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU2OTg2NDczLCJleHAiOjE3NTY5ODcwNzN9.9l-dbQkvCmDkyXnEO2W2dl3-RB0GW_ZgCf6o1cwABSo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/produtos/k56Gbjsh87nslkus",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"produtos",
+										"k56Gbjsh87nslkus"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "/get/regis - Cadastro de produto",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU2OTg4NjAwLCJleHAiOjE3NTY5ODkyMDB9.HfOxl5xciSo-85P6-LUOvn_vr_yPgYtkxUTipP6WBNc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Logitech NX\",\r\n  \"preco\": 400,\r\n  \"descricao\": \"Mouse\",\r\n  \"quantidade\": 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/produtos/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"produtos",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/get/regis - Cadastro de produto com usuário não admin",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAaG90bWFpbC5jb20uYnIiLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU2OTg4NDM0LCJleHAiOjE3NTY5ODkwMzR9._rIGye-tTeg2GSGgrqAFVqnvTHIViXZIPE1PZFnLI8Y",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Logitech VX\",\r\n  \"preco\": 400,\r\n  \"descricao\": \"Mouse\",\r\n  \"quantidade\": 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/produtos/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"produtos",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/get/regis - Cadastro de produto com token expirado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Logitech MX Vertical\",\r\n  \"preco\": 470,\r\n  \"descricao\": \"Mouse\",\r\n  \"quantidade\": 381\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/produtos",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"produtos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/get/regis - Cadastro de produto repetido",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU2OTg2NDczLCJleHAiOjE3NTY5ODcwNzN9.9l-dbQkvCmDkyXnEO2W2dl3-RB0GW_ZgCf6o1cwABSo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Logitech MX Vertical\",\r\n  \"preco\": 470,\r\n  \"descricao\": \"Mouse\",\r\n  \"quantidade\": 381\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/produtos",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"produtos"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PUT",
+					"item": [
+						{
+							"name": "/get/update - Atualização de produto",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU2OTg3MjQyLCJleHAiOjE3NTY5ODc4NDJ9.CQ8XDc0hpmxHK4N4ZlEsdWGKeRMhbJBvanMWkvu7AXo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Logitech MX\",\r\n  \"preco\": 350,\r\n  \"descricao\": \"Mouse\",\r\n  \"quantidade\": 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/produtos/36FZQSsXdJ7RXebq",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"produtos",
+										"36FZQSsXdJ7RXebq"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/get/update - Atualização de produto com usuário não admin",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAaG90bWFpbC5jb20uYnIiLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU2OTg3OTcyLCJleHAiOjE3NTY5ODg1NzJ9.2VQPLp3jRbSXIydDi7y0GQDT_NBtvQkDcd1QXgmA9Yo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Logitech MX\",\r\n  \"preco\": 350,\r\n  \"descricao\": \"Mouse\",\r\n  \"quantidade\": 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/produtos/36FZQSsXdJ7RXebq",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"produtos",
+										"36FZQSsXdJ7RXebq"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/get/update - Atualização de produto com ID inexistente",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU2OTg3MjQyLCJleHAiOjE3NTY5ODc4NDJ9.CQ8XDc0hpmxHK4N4ZlEsdWGKeRMhbJBvanMWkvu7AXo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Logitech MX\",\r\n  \"preco\": 350,\r\n  \"descricao\": \"Mouse\",\r\n  \"quantidade\": 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/produtos/hbnslkiuh12GBH56",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"produtos",
+										"hbnslkiuh12GBH56"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"item": [
+						{
+							"name": "/get/update - Deletar produto",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU2OTg4NjAwLCJleHAiOjE3NTY5ODkyMDB9.HfOxl5xciSo-85P6-LUOvn_vr_yPgYtkxUTipP6WBNc",
+										"type": "text"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/produtos/U0UAMgC4XpKDwYUJ",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"produtos",
+										"U0UAMgC4XpKDwYUJ"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/get/update - Deletar produto com ID inexistente",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU2OTg4NjAwLCJleHAiOjE3NTY5ODkyMDB9.HfOxl5xciSo-85P6-LUOvn_vr_yPgYtkxUTipP6WBNc",
+										"type": "text"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/produtos/U0UAMgC4XpoDwYUJ",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"produtos",
+										"U0UAMgC4XpoDwYUJ"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "/carrinho",
+			"item": [
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "/get/find - Listar os carrinhos cadastrados",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/carrinhos",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"carrinhos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/get/find - Busca de carrinho pela ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/carrinhos/qbMqntef4iTOwWfg",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"carrinhos",
+										"qbMqntef4iTOwWfg"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/get/find - Busca de carrinho por uma ID inexistente",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/carrinhos/qbMqntef4iokwWfg",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"carrinhos",
+										"qbMqntef4iokwWfg"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "/get/find - Cadastro de um carrinho",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAaG90bWFpbC5jb20uYnIiLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU2OTkyMjMzLCJleHAiOjE3NTY5OTI4MzN9.HoDFb4lo8RZc0o7d0LsWUXYUp5FV9X8eapOZSJXd9so",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"produtos\": [\r\n    {\r\n      \"idProduto\": \"36FZQSsXdJ7RXebq\",\r\n      \"quantidade\": 1\r\n    },\r\n    {\r\n      \"idProduto\": \"BeeJh5lz3k6kSIzA\",\r\n      \"quantidade\": 10\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/carrinhos",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"carrinhos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/get/find - Cadastro de um carrinho com produto acima do limite disponível",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU2OTkzNTMzLCJleHAiOjE3NTY5OTQxMzN9.qgrzbOFnmOR_2osKDFZyGqYkFAcaeeVFx4V9yLXrCQQ",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"produtos\": [\r\n    {\r\n      \"idProduto\": \"36FZQSsXdJ7RXebq\",\r\n      \"quantidade\": 10\r\n    },\r\n    {\r\n      \"idProduto\": \"BeeJh5lz3k6kSIzA\",\r\n      \"quantidade\": 20\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/carrinhos",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"carrinhos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/get/find - Cadastrar mais de 1 carrinho por usuário",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAaG90bWFpbC5jb20uYnIiLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU2OTkwNjExLCJleHAiOjE3NTY5OTEyMTF9.7ZQ5WnepKmw7gpXDs2enYtBYy9S024-pHaS8rHnTdDY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"produtos\": [\r\n    {\r\n      \"idProduto\": \"36FZQSsXdJ7RXebq\",\r\n      \"quantidade\": 1\r\n    },\r\n    {\r\n      \"idProduto\": \"BeeJh5lz3k6kSIzA\",\r\n      \"quantidade\": 10\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/carrinhos",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"carrinhos"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"item": [
+						{
+							"name": "/get/find - Concluir a compra de um carrinho",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU2OTkzNTMzLCJleHAiOjE3NTY5OTQxMzN9.qgrzbOFnmOR_2osKDFZyGqYkFAcaeeVFx4V9yLXrCQQ",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/carrinhos/concluir-compra",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"carrinhos",
+										"concluir-compra"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/get/find - Concluir a compra de um carrinho",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZXIuY29tLmJyIiwicGFzc3dvcmQiOiJ0ZXN0ZSIsImlhdCI6MTc1Njk5MTc1MywiZXhwIjoxNzU2OTkyMzUzfQ.PQ6_s7mqAuW58mStXVYeX7841TgUwDxSS3ks7roCFhA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"produtos\": [\r\n    {\r\n      \"idProduto\": \"36FZQSsXdJ7RXebq\",\r\n      \"quantidade\": 1\r\n    },\r\n    {\r\n      \"idProduto\": \"BeeJh5lz3k6kSIzA\",\r\n      \"quantidade\": 10\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/carrinhos/concluir-compra",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"carrinhos",
+										"concluir-compra"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/get/find - Cancelar uma compra",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAaG90bWFpbC5jb20uYnIiLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU2OTkyMjMzLCJleHAiOjE3NTY5OTI4MzN9.HoDFb4lo8RZc0o7d0LsWUXYUp5FV9X8eapOZSJXd9so",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/carrinhos/cancelar-compra",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"carrinhos",
+										"cancelar-compra"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/get/find - Cancelar uma compra novamente",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAaG90bWFpbC5jb20uYnIiLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU2OTkyMjMzLCJleHAiOjE3NTY5OTI4MzN9.HoDFb4lo8RZc0o7d0LsWUXYUp5FV9X8eapOZSJXd9so",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/carrinhos/concluir-compra",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"carrinhos",
+										"concluir-compra"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/get/find - Cancelamento sem ID",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZXIuY29tLmJyIiwicGFzc3dvcmQiOiJ0ZXN0ZSIsImlhdCI6MTc1Njk5MTc1MywiZXhwIjoxNzU2OTkyMzUzfQ.PQ6_s7mqAuW58mStXVYeX7841TgUwDxSS3ks7roCFhA",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/carrinhos/concluir-compra",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"carrinhos",
+										"concluir-compra"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
