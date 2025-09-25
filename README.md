@@ -85,5 +85,6 @@ Assegurar que as rotas de **Usuários, Login e Produtos** funcionem de forma con
 ---
 
 ✍️ **Observação:** Este README reflete o plano de testes **inicial** da ServeRest.  
-A versão revisada, com melhorias aplicadas após o Challenge 2, encontra-se no arquivo:  
+A versão revisada, com melhorias aplicadas após o Challenge 1, encontra-se no arquivo:  
 `Plano_de_Testes_ServeRest_Revisado.md`
+Aonde o mesmo se encontra dentro da pasta "Documentação"
